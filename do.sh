@@ -4,7 +4,8 @@ set -x  # Verbosity all the way
 
 GIT_IGNORE_NEW="true"  # hack for now
 USE_ALIOTH="false"
-SKIP_PBUILDER=true
+SKIP_PBUILDER="true"
+BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="true"  # hack for now
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
@@ -22,6 +23,12 @@ fi
 
 if [[ "$DPKG_SOURCE_COMMIT" == "true" ]] ; then
     EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS --source-option=--auto-commit"
+else
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARG"
+fi
+
+if [[ "$BUILD_JUST_SOURCE_IN_TRAVIS" == "true" ]] ; then
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS -S"
 else
     EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARG"
 fi
