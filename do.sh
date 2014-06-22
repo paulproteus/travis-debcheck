@@ -10,7 +10,7 @@ DPKG_SOURCE_COMMIT="true"  # hack for now
 DO_NOT_SIGN=true
 
 export DEBEMAIL=asheesh@asheesh.org
-epxort DEBFULLNAME="Asheesh Laroia"
+export DEBFULLNAME="Asheesh Laroia"
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
