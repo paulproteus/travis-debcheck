@@ -4,7 +4,7 @@ set -x  # Verbosity all the way
 
 GIT_IGNORE_NEW="true"  # hack for now
 USE_ALIOTH="false"
-SKIP_PBUILDER="true"
+SKIP_PBUILDER="false"
 BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="true"  # hack for now
 
