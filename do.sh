@@ -2,8 +2,6 @@
 set -e  # Fail on errors
 set -x  # Verbosity all the way
 
-grep -i ccache /etc/pbuilderrc
-
 GIT_IGNORE_NEW="true"  # hack for now
 USE_ALIOTH="false"
 SKIP_PBUILDER="false"
@@ -13,6 +11,8 @@ DO_NOT_SIGN=true
 
 export DEBEMAIL=asheesh@asheesh.org
 export DEBFULLNAME="Asheesh Laroia"
+export CCACHEDIR=$HOME/ccache
+mkdir -p "$CCACHEDIR"
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
