@@ -45,7 +45,6 @@ git config --global user.email travis-ci@asheesh.org
 git config --global user.name "Asheesh Laroia (on travis-ci.org)"
 
 # Make sure it builds outside a pbuilder
-cd alpine
 sudo apt-get build-dep alpine  # I realize this is the previous version
 git dch -a
 git add debian/changelog
