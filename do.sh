@@ -7,6 +7,7 @@ USE_ALIOTH="false"
 SKIP_PBUILDER="false"
 BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="true"  # hack for now
+DO_NOT_SIGN=true
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
@@ -32,6 +33,13 @@ if [[ "$BUILD_JUST_SOURCE_IN_TRAVIS" == "true" ]] ; then
 else
     EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARG"
 fi
+
+if [[ "$DO_NOT_SIGN" == "true" ]] ; then
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS -us -uc"
+else
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARG"
+fi
+
 
 sudo apt-get install git-buildpackage
 
