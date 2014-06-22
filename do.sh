@@ -71,7 +71,7 @@ fi
 # Create a pbuilder chroot
 sudo apt-get install ubuntu-dev-tools
 wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
-sudo apt-get install debian-archive-keyring
-pbuilder-dist sid create --debootstrapopts --keyring=$PWD/archive-key-7.0.asc
+gpg --import $PWD/archive-key-7.0.asc
+pbuilder-dist sid create --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg
 pbuilder-dist sid build ../*.dsc
 
