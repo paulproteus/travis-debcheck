@@ -7,9 +7,10 @@ USE_ALIOTH="false"
 SKIP_PBUILDER=true
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
-GIT_URL="https://github.com/paulproteus/alpine-packaging.git"
 if [[ "$USE_ALIOTH" -eq "true" ]] ; then
     GIT_URL="https://alioth.debian.org/anonscm/git/collab-maint/alpine.git"
+else
+    GIT_URL="https://github.com/paulproteus/alpine-packaging.git"
 fi
 
 if [[ "$GIT_IGNORE_NEW" -eq "true" ]] ; then
@@ -21,7 +22,7 @@ fi
 sudo apt-get install git-buildpackage
 
 # Get latest alpine packaging
-git clone "$GIT_URL"
+git clone "$GIT_URL" alpine
 
 # Make sure it builds outside a pbuilder
 cd alpine
