@@ -9,6 +9,9 @@ BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="true"  # hack for now
 DO_NOT_SIGN=true
 
+export DEBEMAIL=asheesh@asheesh.org
+epxort DEBFULLNAME="Asheesh Laroia"
+
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
     GIT_URL="https://alioth.debian.org/anonscm/git/collab-maint/alpine.git"
