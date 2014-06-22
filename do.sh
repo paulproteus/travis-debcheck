@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e  # Fail on errors
+set -x  # Verbosity all the way
 
 EXTRA_GIT_BUILDPACKAGE_ARGS="--git-ignore-true"
 SKIP_PBUILDER=true
