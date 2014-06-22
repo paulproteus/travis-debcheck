@@ -11,9 +11,9 @@ DO_NOT_SIGN=true
 
 export DEBEMAIL=asheesh@asheesh.org
 export DEBFULLNAME="Asheesh Laroia"
-export CCACHEDIR=$HOME/ccache
-mkdir -p "$CCACHEDIR"
-echo "CCACHEDIR=$CCACHEDIR" | sudo tee -a /etc/pbuilderrc
+export CCACHE_DIR=$HOME/ccache
+mkdir -p "$CCACHE_DIR"
+echo "CCACHEDIR=$CCACHE_DIR" | sudo tee -a /etc/pbuilderrc
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
