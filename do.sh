@@ -9,6 +9,10 @@ BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="true"  # hack for now
 DO_NOT_SIGN=true
 
+# Upgrade pbuilder
+wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
+sudo dpkg -i pbuilder*deb
+
 export DEBEMAIL=asheesh@asheesh.org
 export DEBFULLNAME="Asheesh Laroia"
 echo "CCACHEDIR=" | sudo tee -a /etc/pbuilderrc  # Hoping to disable ccache use by pbuilder
