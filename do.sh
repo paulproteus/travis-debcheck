@@ -11,8 +11,6 @@ DO_NOT_SIGN=true
 
 export DEBEMAIL=asheesh@asheesh.org
 export DEBFULLNAME="Asheesh Laroia"
-export CCACHEDIR=$HOME/ccache
-mkdir -p "$CCACHEDIR"
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
@@ -75,5 +73,9 @@ sudo apt-get install ubuntu-dev-tools
 wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 gpg --import $PWD/archive-key-7.0.asc
 pbuilder-dist sid create --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg --mirror http://cdn.debian.net/debian/
+
+# Fix up ccache dir permissions
+sudo chown -R "$USER" /var/cache/pbuilder/cache
+
 pbuilder-dist sid build ../*.dsc
 
