@@ -15,5 +15,5 @@ exit 0  # skip pbuilder for now
 # Create a pbuilder chroot
 sudo apt-get install ubuntu-dev-tools
 pbuilder-dist sid create
-pbuilder-dist build ../*.dsc
+pbuilder-dist sid build ../*.dsc
 
