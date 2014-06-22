@@ -5,6 +5,7 @@ set -x  # Verbosity all the way
 GIT_IGNORE_NEW="true"  # hack for now
 USE_ALIOTH="false"
 SKIP_PBUILDER=true
+DPKG_SOURCE_COMMIT="true"  # hack for now
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
 if [[ "$USE_ALIOTH" == "true" ]] ; then
@@ -17,6 +18,12 @@ if [[ "$GIT_IGNORE_NEW" == "true" ]] ; then
     EXTRA_GIT_BUILDPACKAGE_ARGS="--git-ignore-new"
 else
     EXTRA_GIT_BUILDPACKAGE_ARGS=""
+fi
+
+if [[ "$DPKG_SOURCE_COMMIT" == "true" ]] ; then
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS --commit"
+else
+    EXTRA_GIT_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARG"
 fi
 
 sudo apt-get install git-buildpackage
