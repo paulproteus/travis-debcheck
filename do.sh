@@ -2,7 +2,7 @@
 set -e  # Fail on errors
 set -x  # Verbosity all the way
 
-GIT_IGNORE_NEW="false"
+GIT_IGNORE_NEW="true"
 USE_ALIOTH="true"
 SKIP_PBUILDER="false"
 BUILD_JUST_SOURCE_IN_TRAVIS="true"
