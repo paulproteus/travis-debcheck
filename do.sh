@@ -6,7 +6,7 @@ git clone https://alioth.debian.org/anonscm/git/collab-maint/alpine.git
 
 # Make sure it builds outside a pbuilder
 cd alpine
-gbp buildpackage
+git-buildpackage buildpackage
 
 # Create a pbuilder chroot
 sudo apt-get install ubuntu-dev-tools
