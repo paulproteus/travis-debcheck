@@ -59,6 +59,7 @@ git config --global user.name "Asheesh Laroia (on travis-ci.org)"
 
 # Make sure it builds outside a pbuilder
 sudo apt-get build-dep alpine  # I realize this is the previous version
+git dch -N "2.11+dfsg-1"
 git dch -a
 git add debian/changelog
 git commit -m 'Adding dch -a changelog'
