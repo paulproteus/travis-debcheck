@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e  # Fail on errors
+
 sudo apt-get install git-buildpackage
 
 # Get latest alpine packaging
