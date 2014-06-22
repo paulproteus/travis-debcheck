@@ -8,6 +8,8 @@ git clone https://alioth.debian.org/anonscm/git/collab-maint/alpine.git
 cd alpine
 git-buildpackage buildpackage
 
+exit 0  # skip pbuilder for now
+
 # Create a pbuilder chroot
 sudo apt-get install ubuntu-dev-tools
 pbuilder-dist sid create
