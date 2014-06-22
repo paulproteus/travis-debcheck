@@ -1,5 +1,8 @@
 #!/bin/sh
 sudo apt-get install git-buildpackage
 
+git clone https://alioth.debian.org/anonscm/git/collab-maint/alpine.git
 
-git clone 
+cd alpine
+gbp buildpackage
+
