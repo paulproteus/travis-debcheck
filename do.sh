@@ -7,13 +7,13 @@ USE_ALIOTH="false"
 SKIP_PBUILDER=true
 
 ## Pick which one to build -- the Asheesh fork, or the Alioth packaging
-if [[ "$USE_ALIOTH" -eq "true" ]] ; then
+if [[ "$USE_ALIOTH" == "true" ]] ; then
     GIT_URL="https://alioth.debian.org/anonscm/git/collab-maint/alpine.git"
 else
     GIT_URL="https://github.com/paulproteus/alpine-packaging.git"
 fi
 
-if [[ "$GIT_IGNORE_NEW" -eq "true" ]] ; then
+if [[ "$GIT_IGNORE_NEW" == "true" ]] ; then
     EXTRA_GIT_BUILDPACKAGE_ARGS="--git-ignore-new"
 else
     EXTRA_GIT_BUILDPACKAGE_ARGS=""
@@ -28,7 +28,7 @@ git clone "$GIT_URL" alpine
 cd alpine
 git-buildpackage $EXTRA_GIT_BUILDPACKAGE_ARGS  # intentionally not quoted
 
-if [[ "$SKIP_PBUILDER" -eq "true" ]] ; then
+if [[ "$SKIP_PBUILDER" == "true" ]] ; then
     exit 0  # skip pbuilder for now
 fi
 
