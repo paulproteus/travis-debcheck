@@ -2,11 +2,11 @@
 set -e  # Fail on errors
 set -x  # Verbosity all the way
 
-GIT_IGNORE_NEW="true"  # hack for now
-USE_ALIOTH="false"
+GIT_IGNORE_NEW="false"
+USE_ALIOTH="true"
 SKIP_PBUILDER="false"
 BUILD_JUST_SOURCE_IN_TRAVIS="true"
-DPKG_SOURCE_COMMIT="true"  # hack for now
+DPKG_SOURCE_COMMIT="false"
 DO_NOT_SIGN=true
 
 # Upgrade pbuilder
