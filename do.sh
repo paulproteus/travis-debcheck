@@ -70,6 +70,7 @@ fi
 
 # Create a pbuilder chroot
 sudo apt-get install ubuntu-dev-tools
-pbuilder-dist sid create
+sudo apt-get install debian-archive-keyring
+pbuilder-dist sid create --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
 pbuilder-dist sid build ../*.dsc
 
