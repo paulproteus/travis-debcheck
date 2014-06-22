@@ -2,6 +2,8 @@
 set -e  # Fail on errors
 set -x  # Verbosity all the way
 
+grep -i ccache /etc/pbuilderrc
+
 GIT_IGNORE_NEW="true"  # hack for now
 USE_ALIOTH="false"
 SKIP_PBUILDER="false"
