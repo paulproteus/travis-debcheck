@@ -3,7 +3,7 @@ set -e  # Fail on errors
 set -x  # Verbosity all the way
 
 GIT_IGNORE_NEW="true"
-USE_ALIOTH="true"
+USE_ALIOTH="false"
 SKIP_PBUILDER="false"
 BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="false"
@@ -88,4 +88,7 @@ echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
 # FIXME: also run piuparts or something else???
 
 pbuilder-dist sid build ../*.dsc
+
+# Make sure get-orig-source works
+debian/rules get-orig-source
 
