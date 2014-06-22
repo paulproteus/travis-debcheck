@@ -37,6 +37,8 @@ sudo apt-get install git-buildpackage
 
 # Get latest alpine packaging
 git clone --mirror "$GIT_URL" alpine
+cd alpine
+git config --bool core.bare false
 
 # Tell git on Travis who we are
 git config --global user.email travis-ci@asheesh.org
