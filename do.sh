@@ -27,6 +27,9 @@ git clone "$GIT_URL" alpine
 # Make sure it builds outside a pbuilder
 cd alpine
 sudo apt-get build-dep alpine  # I realize this is the previous version
+git dch -a
+git add debian/changelog
+git commit -m 'Adding dch -a changelog'
 git-buildpackage $EXTRA_GIT_BUILDPACKAGE_ARGS  # intentionally not quoted
 
 if [[ "$SKIP_PBUILDER" == "true" ]] ; then
