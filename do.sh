@@ -10,6 +10,7 @@ DPKG_SOURCE_COMMIT="true"  # hack for now
 DO_NOT_SIGN=true
 
 # Upgrade pbuilder
+sudo apt-get install pbuilder
 wget http://mirrors.kernel.org/ubuntu/pool/main/p/pbuilder/pbuilder_0.215ubuntu7_all.deb
 sudo dpkg -i pbuilder*deb
 
