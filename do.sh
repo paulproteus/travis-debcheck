@@ -12,7 +12,7 @@ git clone https://alioth.debian.org/anonscm/git/collab-maint/alpine.git
 
 # Make sure it builds outside a pbuilder
 cd alpine
-git-buildpackage buildpackage $EXTRA_GIT_BUILDPACKAGE_ARGS
+git-buildpackage $EXTRA_GIT_BUILDPACKAGE_ARGS
 
 if [[ "$SKIP_PBUILDER" -eq "true" ]] ; then
     exit 0  # skip pbuilder for now
