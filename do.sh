@@ -78,7 +78,7 @@ gpg --import $PWD/archive-key-7.0.asc
 pbuilder-dist sid create --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg --mirror http://cdn.debian.net/debian/
 
 # Disable ccache "for now"
-apt-get -y remove ccache | pbuilder-dist sid login --save-after-exec
+apt-get -y remove ccache | sudo pbuilder-dist sid login --save-after-exec
 
 pbuilder-dist sid build ../*.dsc
 
