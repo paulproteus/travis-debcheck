@@ -76,5 +76,9 @@ sudo apt-get install ubuntu-dev-tools
 wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 gpg --import $PWD/archive-key-7.0.asc
 pbuilder-dist sid create --debootstrapopts --keyring=$HOME/.gnupg/pubring.gpg --mirror http://cdn.debian.net/debian/
+
+# Disable ccache "for now"
+apt-get -y remove ccache | pbuilder-dist sid login --save-after-exec
+
 pbuilder-dist sid build ../*.dsc
 
