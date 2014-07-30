@@ -14,6 +14,7 @@ BUILD_JUST_SOURCE_IN_TRAVIS="true"
 DPKG_SOURCE_COMMIT="false"
 DO_NOT_SIGN=true
 PACKAGE="gsimplecal"
+CHECK_GET_ORIG_SOURCE="false"
 
 if [[ "$DO_NOT_SIGN" == "true" ]] ; then
     EXTRA_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS -us -uc"
@@ -61,6 +62,8 @@ echo "HOOKDIR=$HOME/pbuilderhooks/" >> ~/.pbuilderrc
 
 pbuilder-dist sid build ../*.dsc
 
-# Make sure get-orig-source works
-debian/rules get-orig-source
+if [[ "$CHECK_GET_ORIG_SOURCE" == "true" ]] ; then
+    # Make sure get-orig-source works
+    debian/rules get-orig-source
+fi
 
