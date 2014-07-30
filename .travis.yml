@@ -6,6 +6,4 @@ install:
 script:
  - cp -a dot-gnupg ~/.gnupg
  - chmod 0600 ~/.gnupg/*
- - ./do.sh
- - find alpine/debian
- - cat alpine/debian/changelog
+ - ./test-gsimplecal.sh
