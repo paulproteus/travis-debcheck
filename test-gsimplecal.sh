@@ -15,6 +15,12 @@ DPKG_SOURCE_COMMIT="false"
 DO_NOT_SIGN=true
 PACKAGE="gsimplecal"
 
+if [[ "$DO_NOT_SIGN" == "true" ]] ; then
+    EXTRA_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS -us -uc"
+else
+    EXTRA_BUILDPACKAGE_ARGS="$EXTRA_GIT_BUILDPACKAGE_ARGS"
+fi
+
 export DEBEMAIL=asheesh@asheesh.org
 export DEBFULLNAME="Asheesh Laroia"
 echo "CCACHEDIR=" | sudo tee -a /etc/pbuilderrc  # Hoping to disable ccache use by pbuilder
@@ -30,9 +36,11 @@ dget --allow-unauthenticated -x http://mentors.debian.net/debian/pool/main/g/gsi
 sudo apt-get install devscripts equivs
 sudo mk-build-deps -i "$PACKAGE"*dsc
 
+
+
 # Make sure it builds outside a pbuilder
 cd "$PACKAGE"*
-dpkg-buildpackage
+dpkg-buildpackage $EXTRA_BUILDPACKAGE_ARGS
 
 if [[ "$SKIP_PBUILDER" == "true" ]] ; then
     exit 0  # skip pbuilder for now
