@@ -6,5 +6,5 @@ install:
 script:
  - cp -a dot-gnupg ~/.gnupg
  - chmod 0600 ~/.gnupg/*
- - ./test-scikids-audiolab.sh
+ - ./test-samdump.sh
 
