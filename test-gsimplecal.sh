@@ -28,7 +28,7 @@ dget --allow-unauthenticated -x http://mentors.debian.net/debian/pool/main/g/gsi
 
 # Smarter install build-deps
 sudo apt-get install devscripts
-sudo mk-build-deps -i "$PACKAGE"*dsc -t apt-get --no-install-recommends -y
+sudo mk-build-deps -i "$PACKAGE"*dsc
 
 # Make sure it builds outside a pbuilder
 cd "$PACKAGE"*
