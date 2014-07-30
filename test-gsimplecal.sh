@@ -23,9 +23,12 @@ echo "CCACHEDIR=" | sudo tee -a /etc/pbuilderrc  # Hoping to disable ccache use 
 git config --global user.email travis-ci@asheesh.org
 git config --global user.name "Asheesh Laroia (on travis-ci.org)"
 
-sudo apt-get build-dep "$PACKAGE"  # I realize this is the previous version
 
 dget --allow-unauthenticated -x http://mentors.debian.net/debian/pool/main/g/gsimplecal/gsimplecal_2.0-1.dsc
+
+# Smarter install build-deps
+sudo apt-get install devscripts
+sudo mk-build-deps -i "$PACKAGE"*dsc -t apt-get --no-install-recommends -y
 
 # Make sure it builds outside a pbuilder
 cd "$PACKAGE"*
