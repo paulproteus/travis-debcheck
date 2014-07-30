@@ -27,7 +27,7 @@ git config --global user.name "Asheesh Laroia (on travis-ci.org)"
 dget --allow-unauthenticated -x http://mentors.debian.net/debian/pool/main/g/gsimplecal/gsimplecal_2.0-1.dsc
 
 # Smarter install build-deps
-sudo apt-get install devscripts
+sudo apt-get install devscripts equivs
 sudo mk-build-deps -i "$PACKAGE"*dsc
 
 # Make sure it builds outside a pbuilder
