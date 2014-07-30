@@ -42,13 +42,17 @@ cd "$PACKAGE"*
 # set this to true.
 CHECK_GET_ORIG_SOURCE="false"
 
-dpkg-buildpackage $EXTRA_BUILDPACKAGE_ARGS
+## HACK
+# Don't bother with this for scikits learn
+# Rely on the pbuilder.
+#dpkg-buildpackage $EXTRA_BUILDPACKAGE_ARGS
 
 if [[ "$SKIP_PBUILDER" == "true" ]] ; then
     exit 0  # skip pbuilder for now
 fi
 
 # Create a pbuilder chroot
+## FIXME: Cache this somewhere.
 sudo apt-get install ubuntu-dev-tools
 wget https://ftp-master.debian.org/keys/archive-key-7.0.asc
 gpg --import $PWD/archive-key-7.0.asc
