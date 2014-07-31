@@ -67,3 +67,13 @@ if [[ "$CHECK_GET_ORIG_SOURCE" == "true" ]] ; then
     # Make sure get-orig-source works
     debian/rules get-orig-source
 fi
+
+unset -x
+echo "Next steps for reviewer."
+echo ""
+echo "* Search the log for +++ lintian output +++ and make sure it is empty. LINTIAN_OK"
+echo ""
+echo "* Find the upstream source, via debian/watch for example, and make sure it"
+echo "  passes a checksum equivalence. HASH_OK"
+echo ""
+echo "FIXME: uscan --download-current-version ."
